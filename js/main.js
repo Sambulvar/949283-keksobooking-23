@@ -1,4 +1,4 @@
-let arrayAdverts = [];       // объявляем массив для исп-ия в пункте #7;
+const arrayAdverts = [];       // объявляем массив для исп-ия в пункте #7;
 let coordinates;             // объявляем переменную для исп-ия в getLocations(пункт #6);
 const typeOfHousing = ['palace', 'flat', 'house', 'bungalow', 'hotel']; // объявляем массив для исп-ия в getOffer;
 const checkinTime = ['12:00', '13:00', '14:00'];
@@ -29,14 +29,14 @@ randomNum(100, 105,3);
 function getAuthor(currentNumber) {
   let avatar;
   currentNumber <= 9 ?
-    avatar = ('img/avatars/user0' + currentNumber + '.png')
-    : avatar = ('img/avatars/user' + currentNumber + '.png');
+    avatar = (`img/avatars/user0${currentNumber}.png`)
+    : avatar = (`img/avatars/user${currentNumber}.png`);
   return avatar;
 }
 
 // пункт #4. Функция возвращающая массив случайной длины с неповторяющимися элементами;
 function getRandomArray(lengthArrayFeatures, incomingArray){
-  let randomFeaturesArray = [incomingArray[randomInteger(0,incomingArray.length - 1)]];
+  const randomFeaturesArray = [incomingArray[randomInteger(0,incomingArray.length - 1)]];
   let i = 1;
   while (i < lengthArrayFeatures) {
     randomFeaturesArray[i] = incomingArray[randomInteger(0, incomingArray.length - 1)];
@@ -55,9 +55,9 @@ function getRandomArray(lengthArrayFeatures, incomingArray){
 // пункт #5. Объявляем функцию getOffer, в которой формируем объект с полями: title, address, price, type,
 // rooms, guests, checkin, checkout, features, description, photos;
 function getOffer() {
-  let itemsOffer = {
+  const itemsOffer = {
     title: 'Заголовок',
-    address: 'Адрес: ' + coordinates.lat + ' ' + coordinates.lng,
+    address: `Адрес: ${coordinates.lat} ${coordinates.lng}`,
     price: randomInteger(0, 1000000),
     type: typeOfHousing[randomInteger(0,4)],
     rooms: randomInteger(0, 100),
@@ -89,4 +89,3 @@ for (let numberAdvert = 0; numberAdvert < 10; numberAdvert++) {
   };
 }
 
-console.log(arrayAdverts);
